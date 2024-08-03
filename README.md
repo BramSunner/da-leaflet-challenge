@@ -1,7 +1,8 @@
 # About the Project
 This project takes a geoJSON of earthquakes within the past thirty days and plots it on a leaflet map.  
-The markers for the earthquakes are color-coded according to the depth of the earthquake (darker is deeper).  
-Also, the markers are sized according to their magnitude (the larger, the higher the magnitude).  
+Markers for the earthquakes are formatted such that:
+1. various colors denotate the depth of the earthquake (darker is deeper).
+2. varying sizes depict the magnitude of the earthquake (larger is higher magnitude).  
 
 # Built In
 Javascript.  
