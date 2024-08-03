@@ -110,6 +110,30 @@ function createMap(data) {
 
     // Layer controls.
     L.control.layers(baseLayers, overlayLayers).addTo(myMap);
+
+    // Legend.
+    let legend = L.control({
+        position: "bottomright"
+    });
+
+    legend.onAdd = function() {
+        let div = L.DomUtil.create("div", "info legend");
+        let grades = ["0 or Lower", "1 to 10", "11 to 30", "31 to 50", "51 to 70", "71 to 90", "90 or Higher"]; 
+        let colors = ["lawngreen", "lime", "yellowgreen", "yellow", "orange", "darkorange", "darkred"];
+    
+        // Title of the legend.
+        div.innerHTML += "<div>Depth of Earthquake (km)</div>";
+        
+        // Loop thru list and create an element for each bin.
+        for (let i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:'+ colors[i] + '"></i>' + grades[i] + '<br>';
+        }
+    
+        return div;
+    };
+
+    legend.addTo(myMap);
 }
 
 // Fetches the data and calls createMap.
